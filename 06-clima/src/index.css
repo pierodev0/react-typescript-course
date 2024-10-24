@@ -1,0 +1,13 @@
+:root {
+  --color-white: #ffffff;
+  --color-primary: #F59E0B;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  min-height: 100vh;
+  background-color: rgb(20, 20, 73);
+  color: white;
+  font-size: 2rem;
+
+}
