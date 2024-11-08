@@ -1,0 +1,24 @@
+{
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "nodemon --exec ts-node -T src/index.ts"
+  },
+  "devDependencies": {
+    "@swc/core": "^1.9.1",
+    "@swc/helpers": "^0.5.13",
+    "@types/express": "^5.0.0",
+    "nodemon": "^3.1.7",
+    "regenerator-runtime": "^0.14.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "express": "^4.21.1",
+    "express-validator": "^7.2.0",
+    "pg": "^8.13.1",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.5",
+    "sequelize-typescript": "^2.1.6"
+  }
+}
