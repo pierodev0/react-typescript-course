@@ -1,0 +1,164 @@
+{
+  "yaakVersion": "2024.12.1",
+  "yaakSchema": 2,
+  "timestamp": "2024-12-17T18:57:26.307342800",
+  "resources": {
+    "workspaces": [
+      {
+        "model": "workspace",
+        "id": "wk_4HAciVcEY6",
+        "createdAt": "2024-11-30T22:16:23",
+        "updatedAt": "2024-11-30T22:39:22",
+        "name": "UpTask",
+        "description": "",
+        "variables": [
+          {
+            "enabled": true,
+            "name": "BASE_URL",
+            "value": "http://localhost:4000/api"
+          },
+          {
+            "enabled": true,
+            "name": "",
+            "value": ""
+          }
+        ],
+        "settingValidateCertificates": true,
+        "settingFollowRedirects": true,
+        "settingRequestTimeout": 0
+      }
+    ],
+    "environments": [],
+    "folders": [
+      {
+        "model": "folder",
+        "id": "fl_Uwmz6TOBmE",
+        "createdAt": "2024-12-01T00:43:12",
+        "updatedAt": "2024-12-01T00:43:12",
+        "workspaceId": "wk_4HAciVcEY6",
+        "folderId": null,
+        "name": "Task",
+        "sortPriority": -1733013800000.0
+      },
+      {
+        "model": "folder",
+        "id": "fl_xsTKJbQwRy",
+        "createdAt": "2024-12-01T00:42:57",
+        "updatedAt": "2024-12-01T00:42:57",
+        "workspaceId": "wk_4HAciVcEY6",
+        "folderId": null,
+        "name": "Project",
+        "sortPriority": -1733013800000.0
+      }
+    ],
+    "httpRequests": [
+      {
+        "model": "http_request",
+        "id": "rq_EXwTtUwEY6",
+        "createdAt": "2024-12-01T00:02:18",
+        "updatedAt": "2024-12-17T18:56:44",
+        "workspaceId": "wk_4HAciVcEY6",
+        "folderId": "fl_xsTKJbQwRy",
+        "authentication": {},
+        "authenticationType": null,
+        "body": {},
+        "bodyType": null,
+        "headers": [],
+        "method": "DELETE",
+        "name": "Delete Project",
+        "sortPriority": 4000.0,
+        "url": "${[ BASE_URL ]}/projects/6761c949fd489ed3e0c611de",
+        "urlParameters": []
+      },
+      {
+        "model": "http_request",
+        "id": "rq_8upCzKJrXj",
+        "createdAt": "2024-11-30T23:41:50",
+        "updatedAt": "2024-12-17T18:56:35",
+        "workspaceId": "wk_4HAciVcEY6",
+        "folderId": "fl_xsTKJbQwRy",
+        "authentication": {},
+        "authenticationType": null,
+        "body": {
+          "text": "{\n  \"projectName\" : \"Eccommerce 1 - new\",\n  \"clientName\" : \"ADIDAS - new\",  \n  \"description\" : \"Proyecto Ecommerce con Next y Shopify - new\"\n}"
+        },
+        "bodyType": "application/json",
+        "headers": [
+          {
+            "enabled": true,
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "PUT",
+        "name": "Update Project by Id",
+        "sortPriority": 3000.0,
+        "url": "${[ BASE_URL ]}/projects/6761c949fd489ed3e0c611de",
+        "urlParameters": []
+      },
+      {
+        "model": "http_request",
+        "id": "rq_vJ4lY2B8Sb",
+        "createdAt": "2024-11-30T23:31:21",
+        "updatedAt": "2024-12-17T18:56:29",
+        "workspaceId": "wk_4HAciVcEY6",
+        "folderId": "fl_xsTKJbQwRy",
+        "authentication": {},
+        "authenticationType": null,
+        "body": {},
+        "bodyType": null,
+        "headers": [],
+        "method": "GET",
+        "name": "Get Project by Id",
+        "sortPriority": 2000.0,
+        "url": "${[ BASE_URL ]}/projects/6761c949fd489ed3e0c611de",
+        "urlParameters": []
+      },
+      {
+        "model": "http_request",
+        "id": "rq_y4dLtpm0uL",
+        "createdAt": "2024-11-30T22:44:29",
+        "updatedAt": "2024-12-01T00:43:05",
+        "workspaceId": "wk_4HAciVcEY6",
+        "folderId": "fl_xsTKJbQwRy",
+        "authentication": {},
+        "authenticationType": null,
+        "body": {
+          "text": "{\n  \"projectName\" : \"Eccommerce 3\",\n  \"clientName\" : \"ADIDAS\",\n  \"description\" : \"Proyecto Ecommerce con Next y Shopify\"\n}"
+        },
+        "bodyType": "application/json",
+        "headers": [
+          {
+            "enabled": true,
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "name": "Create project",
+        "sortPriority": 0.0,
+        "url": "${[ BASE_URL ]}/projects",
+        "urlParameters": []
+      },
+      {
+        "model": "http_request",
+        "id": "rq_kcTaVIIaLi",
+        "createdAt": "2024-11-30T22:16:26",
+        "updatedAt": "2024-12-01T00:43:05",
+        "workspaceId": "wk_4HAciVcEY6",
+        "folderId": "fl_xsTKJbQwRy",
+        "authentication": {},
+        "authenticationType": null,
+        "body": {},
+        "bodyType": null,
+        "headers": [],
+        "method": "GET",
+        "name": "Get all Projects",
+        "sortPriority": 1000.0,
+        "url": "${[ BASE_URL ]}/projects",
+        "urlParameters": []
+      }
+    ],
+    "grpcRequests": []
+  }
+}
