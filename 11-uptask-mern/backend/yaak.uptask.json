@@ -1,14 +1,14 @@
 {
-  "yaakVersion": "2024.12.1",
+  "yaakVersion": "2024.13.0",
   "yaakSchema": 2,
-  "timestamp": "2024-12-17T18:57:26.307342800",
+  "timestamp": "2024-12-19T21:15:55.047620257",
   "resources": {
     "workspaces": [
       {
         "model": "workspace",
         "id": "wk_4HAciVcEY6",
-        "createdAt": "2024-11-30T22:16:23",
-        "updatedAt": "2024-11-30T22:39:22",
+        "createdAt": "2024-12-17T19:22:47",
+        "updatedAt": "2024-12-19T21:14:00",
         "name": "UpTask",
         "description": "",
         "variables": [
@@ -16,6 +16,11 @@
             "enabled": true,
             "name": "BASE_URL",
             "value": "http://localhost:4000/api"
+          },
+          {
+            "enabled": true,
+            "name": "project_id",
+            "value": "${[ response.body.path(request='rq_y4dLtpm0uL', path='$._id') ]}"
           },
           {
             "enabled": true,
@@ -33,8 +38,8 @@
       {
         "model": "folder",
         "id": "fl_Uwmz6TOBmE",
-        "createdAt": "2024-12-01T00:43:12",
-        "updatedAt": "2024-12-01T00:43:12",
+        "createdAt": "2024-12-17T19:22:47",
+        "updatedAt": "2024-12-17T19:22:47",
         "workspaceId": "wk_4HAciVcEY6",
         "folderId": null,
         "name": "Task",
@@ -43,8 +48,8 @@
       {
         "model": "folder",
         "id": "fl_xsTKJbQwRy",
-        "createdAt": "2024-12-01T00:42:57",
-        "updatedAt": "2024-12-01T00:42:57",
+        "createdAt": "2024-12-17T19:22:47",
+        "updatedAt": "2024-12-17T19:22:47",
         "workspaceId": "wk_4HAciVcEY6",
         "folderId": null,
         "name": "Project",
@@ -54,9 +59,35 @@
     "httpRequests": [
       {
         "model": "http_request",
+        "id": "rq_96bSpKO2DE",
+        "createdAt": "2024-12-17T20:32:44",
+        "updatedAt": "2024-12-19T21:14:21",
+        "workspaceId": "wk_4HAciVcEY6",
+        "folderId": "fl_Uwmz6TOBmE",
+        "authentication": {},
+        "authenticationType": null,
+        "body": {
+          "text": "{\n  \"name\" : \"Definir Framework CSS\",  \n    \"description\" : \"Buscar el mejor framework CSS\"\n}"
+        },
+        "bodyType": "application/json",
+        "headers": [
+          {
+            "enabled": true,
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "name": "Create Task",
+        "sortPriority": -1734467500000.0,
+        "url": "${[ BASE_URL ]}/projects/${[ project_id ]}/tasks",
+        "urlParameters": []
+      },
+      {
+        "model": "http_request",
         "id": "rq_EXwTtUwEY6",
-        "createdAt": "2024-12-01T00:02:18",
-        "updatedAt": "2024-12-17T18:56:44",
+        "createdAt": "2024-12-17T19:22:47",
+        "updatedAt": "2024-12-19T21:14:59",
         "workspaceId": "wk_4HAciVcEY6",
         "folderId": "fl_xsTKJbQwRy",
         "authentication": {},
@@ -67,14 +98,14 @@
         "method": "DELETE",
         "name": "Delete Project",
         "sortPriority": 4000.0,
-        "url": "${[ BASE_URL ]}/projects/6761c949fd489ed3e0c611de",
+        "url": "${[ BASE_URL ]}/projects/${[ project_id ]}",
         "urlParameters": []
       },
       {
         "model": "http_request",
         "id": "rq_8upCzKJrXj",
-        "createdAt": "2024-11-30T23:41:50",
-        "updatedAt": "2024-12-17T18:56:35",
+        "createdAt": "2024-12-17T19:22:47",
+        "updatedAt": "2024-12-19T21:14:50",
         "workspaceId": "wk_4HAciVcEY6",
         "folderId": "fl_xsTKJbQwRy",
         "authentication": {},
@@ -93,38 +124,41 @@
         "method": "PUT",
         "name": "Update Project by Id",
         "sortPriority": 3000.0,
-        "url": "${[ BASE_URL ]}/projects/6761c949fd489ed3e0c611de",
+        "url": "${[ BASE_URL ]}/projects/${[ project_id ]}",
         "urlParameters": []
       },
       {
         "model": "http_request",
         "id": "rq_vJ4lY2B8Sb",
-        "createdAt": "2024-11-30T23:31:21",
-        "updatedAt": "2024-12-17T18:56:29",
+        "createdAt": "2024-12-17T19:22:47",
+        "updatedAt": "2024-12-19T21:14:36",
         "workspaceId": "wk_4HAciVcEY6",
         "folderId": "fl_xsTKJbQwRy",
-        "authentication": {},
-        "authenticationType": null,
+        "authentication": {
+          "password": "",
+          "username": ""
+        },
+        "authenticationType": "basic",
         "body": {},
         "bodyType": null,
         "headers": [],
         "method": "GET",
         "name": "Get Project by Id",
         "sortPriority": 2000.0,
-        "url": "${[ BASE_URL ]}/projects/6761c949fd489ed3e0c611de",
+        "url": "${[ BASE_URL ]}/projects/${[ project_id ]}",
         "urlParameters": []
       },
       {
         "model": "http_request",
         "id": "rq_y4dLtpm0uL",
-        "createdAt": "2024-11-30T22:44:29",
-        "updatedAt": "2024-12-01T00:43:05",
+        "createdAt": "2024-12-17T19:22:47",
+        "updatedAt": "2024-12-19T21:12:59",
         "workspaceId": "wk_4HAciVcEY6",
         "folderId": "fl_xsTKJbQwRy",
         "authentication": {},
         "authenticationType": null,
         "body": {
-          "text": "{\n  \"projectName\" : \"Eccommerce 3\",\n  \"clientName\" : \"ADIDAS\",\n  \"description\" : \"Proyecto Ecommerce con Next y Shopify\"\n}"
+          "text": "{\n  \"projectName\" : \"Eccommerce 4\",\n  \"clientName\" : \"ADIDAS\",\n  \"description\" : \"Proyecto Ecommerce con Next y Shopify\"\n}"
         },
         "bodyType": "application/json",
         "headers": [
@@ -143,8 +177,8 @@
       {
         "model": "http_request",
         "id": "rq_kcTaVIIaLi",
-        "createdAt": "2024-11-30T22:16:26",
-        "updatedAt": "2024-12-01T00:43:05",
+        "createdAt": "2024-12-17T19:22:47",
+        "updatedAt": "2024-12-17T19:22:47",
         "workspaceId": "wk_4HAciVcEY6",
         "folderId": "fl_xsTKJbQwRy",
         "authentication": {},
