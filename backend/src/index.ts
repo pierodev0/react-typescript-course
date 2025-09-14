@@ -1,8 +1,6 @@
-import { app as server } from "./server";
-import colors from 'colors';
-
+import chalk from "chalk";
+import { server } from "./server";
 const port = process.env.PORT || 4000;
-
-server.listen(port, () => 
-    console.log(colors.cyan(`Server is running on port ${port}`))
-);
+server.listen(port,()=> {
+    console.log(chalk.green(`Rest api en el puerto ${port}`))
+})
