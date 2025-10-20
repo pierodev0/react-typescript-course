@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createProduct, getProductById, getProducts } from "./handlers/product";
+import { createProduct, getProductById, getProducts, updateProduct } from "./handlers/product";
 import { body, param } from "express-validator";
 import { handlerInputErrors } from "./middleware";
 const router = Router();
@@ -26,9 +26,22 @@ router.post(
   handlerInputErrors,
   createProduct
 );
-router.put("/", (req, res) => {
-  res.send("Hola mundo en put");
-});
+router.put("/:id",
+   //Validacion
+  body("name")
+    .notEmpty()
+    .withMessage("El nombre del producto no puede ir vacio"),
+  body("price")
+    .isNumeric()
+    .withMessage("Valor no valido")
+    .notEmpty()
+    .withMessage("El precio del producto no puede ir vacio")
+    .custom((value) => value > 0)
+    .withMessage("Precio no valido"),
+  body("availability")
+    .isBoolean().withMessage("Valor de availability no valido"),
+  handlerInputErrors,
+   updateProduct);
 router.patch("/", (req, res) => {
   res.send("Hola mundo en patch");
 });
