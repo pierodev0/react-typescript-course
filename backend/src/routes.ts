@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createProduct, getProductById, getProducts, updateProduct } from "./handlers/product";
+import { createProduct, getProductById, getProducts, updateAvailability, updateProduct } from "./handlers/product";
 import { body, param } from "express-validator";
 import { handlerInputErrors } from "./middleware";
 const router = Router();
@@ -42,9 +42,7 @@ router.put("/:id",
     .isBoolean().withMessage("Valor de availability no valido"),
   handlerInputErrors,
    updateProduct);
-router.patch("/", (req, res) => {
-  res.send("Hola mundo en patch");
-});
+router.patch("/:id", updateAvailability);
 router.delete("/", (req, res) => {
   res.send("Hola mundo en delete");
 });
