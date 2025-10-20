@@ -1,5 +1,12 @@
 import { Router } from "express";
-import { createProduct, getProductById, getProducts, updateAvailability, updateProduct } from "./handlers/product";
+import {
+  createProduct,
+  deleteProduct,
+  getProductById,
+  getProducts,
+  updateAvailability,
+  updateProduct,
+} from "./handlers/product";
 import { body, param } from "express-validator";
 import { handlerInputErrors } from "./middleware";
 const router = Router();
@@ -26,8 +33,9 @@ router.post(
   handlerInputErrors,
   createProduct
 );
-router.put("/:id",
-   //Validacion
+router.put(
+  "/:id",
+  param("id").isInt().withMessage("Id no valido"),
   body("name")
     .notEmpty()
     .withMessage("El nombre del producto no puede ir vacio"),
@@ -39,12 +47,22 @@ router.put("/:id",
     .custom((value) => value > 0)
     .withMessage("Precio no valido"),
   body("availability")
-    .isBoolean().withMessage("Valor de availability no valido"),
+    .isBoolean()
+    .withMessage("Valor de availability no valido"),
   handlerInputErrors,
-   updateProduct);
-router.patch("/:id", updateAvailability);
-router.delete("/", (req, res) => {
-  res.send("Hola mundo en delete");
-});
+  updateProduct
+);
+router.patch(
+  "/:id",
+  param("id").isInt().withMessage("Id no valido"),
+  handlerInputErrors,
+  updateAvailability
+);
+router.delete(
+  "/:id",
+  param("id").isInt().withMessage("Id no valido"),
+  handlerInputErrors,
+  deleteProduct
+);
 
 export default router;
