@@ -1,0 +1,200 @@
+{
+  "yaakVersion": "2025.5.6",
+  "yaakSchema": 4,
+  "timestamp": "2025-10-20T18:40:38.493029243",
+  "resources": {
+    "workspaces": [
+      {
+        "model": "workspace",
+        "id": "wk_GVNhC8Tn67",
+        "createdAt": "2025-09-12T19:30:26.637526150",
+        "updatedAt": "2025-10-20T18:39:54.362067655",
+        "authentication": {},
+        "authenticationType": null,
+        "description": "",
+        "headers": [],
+        "name": "ProductManager",
+        "encryptionKeyChallenge": null,
+        "settingValidateCertificates": true,
+        "settingFollowRedirects": true,
+        "settingRequestTimeout": 0
+      }
+    ],
+    "environments": [
+      {
+        "model": "environment",
+        "id": "ev_W8GbapVqud",
+        "workspaceId": "wk_GVNhC8Tn67",
+        "createdAt": "2025-09-12T19:30:27.274269141",
+        "updatedAt": "2025-09-14T20:31:24.731061056",
+        "name": "Global Variables",
+        "public": false,
+        "base": true,
+        "variables": [
+          {
+            "enabled": true,
+            "name": "URL",
+            "value": "localhost:4000/api",
+            "id": "3NRekVU40n"
+          }
+        ],
+        "color": null
+      }
+    ],
+    "folders": [],
+    "httpRequests": [
+      {
+        "model": "http_request",
+        "id": "rq_otXmg5qNNA",
+        "createdAt": "2025-10-20T18:30:49.534759559",
+        "updatedAt": "2025-10-20T18:32:11.020460862",
+        "workspaceId": "wk_GVNhC8Tn67",
+        "folderId": null,
+        "authentication": {},
+        "authenticationType": null,
+        "body": {
+          "text": "{\n  \"id\": 1\n}"
+        },
+        "bodyType": "application/json",
+        "description": "",
+        "headers": [
+          {
+            "enabled": true,
+            "name": "Content-Type",
+            "value": "application/json",
+            "id": "zPqKaF760F"
+          }
+        ],
+        "method": "DELETE",
+        "name": "Eliminar producto",
+        "sortPriority": -1757807274841.999,
+        "url": "${[ URL ]}/products/21",
+        "urlParameters": []
+      },
+      {
+        "model": "http_request",
+        "id": "rq_NdbGnrBEeo",
+        "createdAt": "2025-10-20T18:00:42.042052642",
+        "updatedAt": "2025-10-20T18:03:20.957334224",
+        "workspaceId": "wk_GVNhC8Tn67",
+        "folderId": null,
+        "authentication": {},
+        "authenticationType": null,
+        "body": {
+          "text": "{\n  \"availability\": true\n}"
+        },
+        "bodyType": "application/json",
+        "description": "",
+        "headers": [
+          {
+            "enabled": true,
+            "name": "Content-Type",
+            "value": "application/json",
+            "id": "zPqKaF760F"
+          }
+        ],
+        "method": "PATCH",
+        "name": "Actualizar disponibilidad",
+        "sortPriority": -1757807274842.0,
+        "url": "${[ URL ]}/products/21",
+        "urlParameters": []
+      },
+      {
+        "model": "http_request",
+        "id": "rq_dmCc9npQkf",
+        "createdAt": "2025-10-20T17:48:25.714612686",
+        "updatedAt": "2025-10-20T18:37:57.748889518",
+        "workspaceId": "wk_GVNhC8Tn67",
+        "folderId": null,
+        "authentication": {},
+        "authenticationType": null,
+        "body": {
+          "text": "{\n  \"name\": \"Tablet Actualizado\",\n  \"price\": 10000,\n  \"availability\": true\n}"
+        },
+        "bodyType": "application/json",
+        "description": "",
+        "headers": [
+          {
+            "enabled": true,
+            "name": "Content-Type",
+            "value": "application/json",
+            "id": "SjcIjeVEfY"
+          }
+        ],
+        "method": "PUT",
+        "name": "Actualizar producto",
+        "sortPriority": -1757807274842.0,
+        "url": "${[ URL ]}/products/21",
+        "urlParameters": []
+      },
+      {
+        "model": "http_request",
+        "id": "rq_k4jvA2KzGU",
+        "createdAt": "2025-10-20T17:38:14.265487425",
+        "updatedAt": "2025-10-20T17:46:08.345762289",
+        "workspaceId": "wk_GVNhC8Tn67",
+        "folderId": null,
+        "authentication": {},
+        "authenticationType": null,
+        "body": {},
+        "bodyType": null,
+        "description": "",
+        "headers": [],
+        "method": "GET",
+        "name": "Obtener producto por ID",
+        "sortPriority": -1757807274842.0,
+        "url": "${[ URL ]}/products/21",
+        "urlParameters": []
+      },
+      {
+        "model": "http_request",
+        "id": "rq_a3APeABYSb",
+        "createdAt": "2025-10-20T03:32:43.237385450",
+        "updatedAt": "2025-10-20T03:34:17.610481158",
+        "workspaceId": "wk_GVNhC8Tn67",
+        "folderId": null,
+        "authentication": {},
+        "authenticationType": null,
+        "body": {},
+        "bodyType": null,
+        "description": "",
+        "headers": [],
+        "method": "GET",
+        "name": "Obtener Productos",
+        "sortPriority": -1757807274842.0,
+        "url": "${[ URL ]}/products",
+        "urlParameters": []
+      },
+      {
+        "model": "http_request",
+        "id": "rq_AgMGvT8UEe",
+        "createdAt": "2025-09-13T23:47:54.848775495",
+        "updatedAt": "2025-10-20T03:36:09.346175866",
+        "workspaceId": "wk_GVNhC8Tn67",
+        "folderId": null,
+        "authentication": {},
+        "authenticationType": null,
+        "body": {
+          "text": "{\n  \"name\": \"Tablet\",\n  \"price\": 300,\n  \"availability\": true\n}"
+        },
+        "bodyType": "application/json",
+        "description": "",
+        "headers": [
+          {
+            "enabled": true,
+            "name": "Content-Type",
+            "value": "application/json",
+            "id": "89VIQ5nw9P"
+          }
+        ],
+        "method": "POST",
+        "name": "POST - Crear producto",
+        "sortPriority": -1757807274842.0,
+        "url": "${[ URL ]}/products",
+        "urlParameters": []
+      }
+    ],
+    "grpcRequests": [],
+    "websocketRequests": []
+  }
+}
