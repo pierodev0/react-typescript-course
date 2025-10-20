@@ -1,11 +1,9 @@
 import { Router } from "express";
-import { createProduct } from "./handlers/product";
+import { createProduct, getProducts } from "./handlers/product";
 import { body } from "express-validator";
 import { handlerInputErrors } from "./middleware";
 const router = Router();
-router.get("/", (req, res) => {
-  res.send("Hola mundo");
-});
+router.get("/", getProducts);
 router.post(
   "/",
   //Validacion
