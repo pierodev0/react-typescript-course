@@ -1,6 +1,7 @@
 import {
   Form,
   Link,
+  redirect,
   useActionData,
   type ActionFunctionArgs,
 } from "react-router";
@@ -16,8 +17,8 @@ export async function action({ request }: ActionFunctionArgs) {
     return error;
   }
 
-  addProduct(data);
-  return {};
+  await addProduct(data);
+  return redirect("/");
 }
 const NewProduct = () => {
   const error = useActionData() as string;
