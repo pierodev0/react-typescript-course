@@ -13,7 +13,7 @@ const router = Router();
 router.get("/", getProducts);
 router.get(
   "/:id",
-  param("id").isInt().withMessage("Id no valido"),
+  param("id").isInt().withMessage("Cambio"),
   handlerInputErrors,
   getProductById
 );
