@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router";
+import {  useNavigate } from "react-router";
 import type { Product } from "../types";
 import { formatCurrency } from "../utils";
 

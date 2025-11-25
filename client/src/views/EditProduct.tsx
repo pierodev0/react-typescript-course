@@ -4,9 +4,13 @@ import {
   redirect,
   useActionData,
   type ActionFunctionArgs,
+  type LoaderFunctionArgs,
 } from "react-router";
 import ErrorMessage from "../components/ErrorMessage";
 import { addProduct } from "../services/ProductsService";
+export async function loader({params} : LoaderFunctionArgs) {
+  console.log(params)
+}
 export async function action({ request }: ActionFunctionArgs) {
   const data = Object.fromEntries(await request.formData());
   let error = "";
