@@ -52,3 +52,8 @@ export async function getProductsById(id : Product['id']) {
     console.log(error);
   }
 }
+export async function editProduct(data: ProductData,id: Product['id']) {
+  console.log(data)
+  console.log(id)
+}
+

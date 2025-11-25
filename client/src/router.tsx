@@ -2,7 +2,10 @@ import { createBrowserRouter } from "react-router";
 import Layout from "./layouts/Layout";
 import Products, { loader as productsLoader } from "./views/Products";
 import NewProduct, { action as newProductAction } from "./views/NewProduct";
-import EditProduct, {loader as editProductLoader} from "./views/EditProduct";
+import EditProduct, {
+  loader as editProductLoader,
+  action as editProductAction,
+} from "./views/EditProduct";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -20,9 +23,10 @@ export const router = createBrowserRouter([
       },
       {
         path: "productos/:id/edit",
-        element: <EditProduct/>,
-        loader: editProductLoader
-      }
+        element: <EditProduct />,
+        loader: editProductLoader,
+        action: editProductAction,
+      },
     ],
   },
 ]);

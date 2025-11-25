@@ -8,7 +8,7 @@ import {
   type LoaderFunctionArgs,
 } from "react-router";
 import ErrorMessage from "../components/ErrorMessage";
-import { addProduct, getProductsById } from "../services/ProductsService";
+import { editProduct, getProductsById } from "../services/ProductsService";
 import type { Product } from "../types";
 export async function loader({ params }: LoaderFunctionArgs) {
   if (params.id !== undefined) {
@@ -19,7 +19,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
     return product;
   }
 }
-export async function action({ request }: ActionFunctionArgs) {
+export async function action({ request, params }: ActionFunctionArgs) {
   const data = Object.fromEntries(await request.formData());
   let error = "";
   if (Object.values(data).includes("")) {
@@ -29,8 +29,10 @@ export async function action({ request }: ActionFunctionArgs) {
     return error;
   }
 
-  await addProduct(data);
-  return redirect("/");
+  if (params.id !== undefined) {
+    await editProduct(data, +params.id);
+    return redirect("/");
+  }
 }
 const EditProduct = () => {
   const product = useLoaderData() as Product;
