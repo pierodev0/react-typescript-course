@@ -44,7 +44,7 @@ const NewProduct = () => {
           <input
             id="name"
             type="text"
-            className="mt-2 block w-full p-3 bg-gray-50"
+            className="mt-2 block w-full p-3 bg-gray-50 placeholder:text-gray-500"
             placeholder="Nombre del Producto"
             name="name"
           />
@@ -56,7 +56,7 @@ const NewProduct = () => {
           <input
             id="price"
             type="number"
-            className="mt-2 block w-full p-3 bg-gray-50"
+            className="mt-2 block w-full p-3 bg-gray-50 placeholder:text-gray-500"
             placeholder="Precio Producto. ej. 200, 300"
             name="price"
           />
