@@ -1,0 +1,17 @@
+{
+  "commands": [
+    {
+      "name": "Start frontend",
+      "cmd": "bun run dev",
+      "cwd": "client",
+      "groups": ["dev"]
+    },
+    {
+      "name": "Start server",
+      "cmd": "bun run dev",
+      "cwd": "backend",
+      "groups": ["dev"]
+    }
+  ]
+}
+

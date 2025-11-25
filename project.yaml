@@ -1,0 +1,21 @@
+session_name: react-typescript-course
+start_directory: .
+
+windows:
+  - window_name: editor
+    panes:
+      - shell_command:
+          - nvim
+
+  - window_name: backend
+    start_directory: ./backend
+    panes:
+      - shell_command:
+          - bun run dev
+
+  - window_name: client
+    start_directory: ./client
+    panes:
+      - shell_command:
+          - bun run dev
+

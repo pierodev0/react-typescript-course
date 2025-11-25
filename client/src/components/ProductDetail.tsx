@@ -15,6 +15,7 @@ const ProductDetail = ({ product }: ProductDetailProp) => {
       <td className="p-3 text-lg text-gray-800 ">
         {isAvailable ? "Disponible" : "No disponible"}
       </td>
+      <td className="flex gap-2 items-center">Editar</td>
     </tr>
   );
 };

@@ -19,5 +19,26 @@ export default defineConfig([
       ecmaVersion: 2020,
       globals: globals.browser,
     },
+    rules: {
+      // Permite exportar loader, action, meta, etc. junto con componentes
+      'react-refresh/only-export-components': [
+        'error',
+        {
+          allowExportNames: [
+            'meta',
+            'links',
+            'headers',
+            'loader',
+            'action',
+            'clientLoader',
+            'clientAction',
+            'ErrorBoundary',
+            'HydrateFallback',
+            'shouldRevalidate',
+            'handle',
+          ],
+        },
+      ],
+    },
   },
 ])
