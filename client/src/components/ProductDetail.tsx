@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import type { Product } from "../types";
 import { formatCurrency } from "../utils";
 
@@ -15,7 +16,16 @@ const ProductDetail = ({ product }: ProductDetailProp) => {
       <td className="p-3 text-lg text-gray-800 ">
         {isAvailable ? "Disponible" : "No disponible"}
       </td>
-      <td className="flex gap-2 items-center">Editar</td>
+      <td className="p-3 text-lg text-gray-800">
+        <div className="flex gap-2 items-center">
+          <Link
+            to={`/productos/${product.id}/edit`}
+            className="bg-indigo-600 text-white rounded-lg w-full p-2 uppercase font-bold text-xs text-center"
+          >
+            Editar
+          </Link>
+        </div>
+      </td>
     </tr>
   );
 };
