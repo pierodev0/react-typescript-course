@@ -64,10 +64,15 @@ export async function editProduct(data: ProductData, id: Product["id"]) {
     const result = safeParse(ProductSchema, {
       id,
       name: data.name,
-      price: parse(NumberSchema, data.price),
+      price: parse(NumberSchema,data.price),
       availability: toBoolean(data.availability.toString()),
     });
-    console.log(result);
+    if (result.success) {
+      const url = `${import.meta.env.VITE_API_URL}/api/products/${id}`;
+      await axios.put(url, result.output);
+    } else {
+      throw new Error("Datos no validos");
+    }
   } catch (error) {
     console.log(error);
   }
