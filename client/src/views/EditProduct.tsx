@@ -10,6 +10,7 @@ import {
 import ErrorMessage from "../components/ErrorMessage";
 import { editProduct, getProductsById } from "../services/ProductsService";
 import type { Product } from "../types";
+import ProductForm from "../components/ProductForm";
 export async function loader({ params }: LoaderFunctionArgs) {
   if (params.id !== undefined) {
     const product = await getProductsById(+params.id);
@@ -56,32 +57,7 @@ const EditProduct = () => {
       </div>
       {error && <ErrorMessage>{error}</ErrorMessage>}
       <Form method="post" className="mt-10">
-        <div className="mb-4">
-          <label className="text-gray-800" htmlFor="name">
-            Nombre Producto:
-          </label>
-          <input
-            id="name"
-            type="text"
-            className="mt-2 block w-full p-3 bg-gray-50"
-            placeholder="Nombre del Producto"
-            name="name"
-            defaultValue={product.name}
-          />
-        </div>
-        <div className="mb-4">
-          <label className="text-gray-800" htmlFor="price">
-            Precio:
-          </label>
-          <input
-            id="price"
-            type="number"
-            className="mt-2 block w-full p-3 bg-gray-50"
-            placeholder="Precio Producto. ej. 200, 300"
-            name="price"
-            defaultValue={product.price}
-          />
-        </div>
+        <ProductForm product={product}/>
         <div className="mb-4">
           <label className="text-gray-800" htmlFor="availability">
             Disponibilidad:
@@ -102,7 +78,7 @@ const EditProduct = () => {
         <input
           type="submit"
           className="mt-5 w-full bg-indigo-600 p-2 text-white font-bold text-lg cursor-pointer rounded"
-          value="Editar Producto"
+          value="Guardar Cambios"
         />
       </Form>
     </>
