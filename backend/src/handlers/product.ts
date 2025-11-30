@@ -3,6 +3,7 @@ import Product from "../models/Product.model";
 export const getProducts = async (req: Request, res: Response) => {
   try {
     const products = await Product.findAll({
+      order: [["id", "DESC"]],
       attributes: { exclude: ["createdAt", "updatedAt"] },
     });
     res.json({ data: products });
@@ -66,8 +67,8 @@ export const updateAvailability = async (req: Request, res: Response) => {
       });
     }
     //Actualizar (parcial)
-    product.availability = req.body.availability;
-    await product.save;
+    product.availability = !product.dataValues.availability;
+    await product.save();
 
     res.json({ data: product });
   } catch (error) {
@@ -86,7 +87,7 @@ export const deleteProduct = async (req: Request, res: Response) => {
       });
     }
     await product.destroy();
-    res.json({data : "Producto eliminado"})
+    res.json({ data: "Producto eliminado" });
   } catch (error) {
     console.log(error);
   }
