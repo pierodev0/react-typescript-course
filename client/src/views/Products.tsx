@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "react-router";
+import { Link, useLoaderData, type ActionFunctionArgs } from "react-router";
 import { getProducts } from "../services/ProductsService";
 import ProductDetail from "../components/ProductDetail";
 import type { Product } from "../types";
@@ -8,6 +8,8 @@ export async function loader() {
   return products;
 }
 
+export async function action({ params }: ActionFunctionArgs) {
+}
 const Products = () => {
   const products = useLoaderData()as Product[];
   return (
