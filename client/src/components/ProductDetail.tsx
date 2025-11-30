@@ -1,14 +1,22 @@
-import { Form, redirect, useNavigate, type ActionFunctionArgs } from "react-router";
+import {
+  Form,
+  redirect,
+  useNavigate,
+  type ActionFunctionArgs,
+} from "react-router";
 import type { Product } from "../types";
 import { formatCurrency } from "../utils";
+import { deleteProduct } from "../services/ProductsService";
 
 type ProductDetailProp = {
   product: Product;
 };
 
-export async function action({ request, params }: ActionFunctionArgs) {
-  console.log("Desde action ProductDetails");
-  return redirect("/")
+export async function action({ params }: ActionFunctionArgs) {
+  if (params.id !== undefined) {
+    await deleteProduct(+params.id);
+    return redirect("/");
+  }
 }
 const ProductDetail = ({ product }: ProductDetailProp) => {
   const isAvailable = product.availability;
@@ -34,6 +42,11 @@ const ProductDetail = ({ product }: ProductDetailProp) => {
             className="w-full"
             method="post"
             action={`productos/${product.id}/eliminar`}
+            onSubmit={(e) => {
+              if (!confirm("Confirmar?")) {
+                e.preventDefault();
+              }
+            }}
           >
             <button
               className="bg-red-600 text-white rounded-lg w-full p-2 uppercase font-bold text-xs text-center w-full"

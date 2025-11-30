@@ -64,7 +64,7 @@ export async function editProduct(data: ProductData, id: Product["id"]) {
     const result = safeParse(ProductSchema, {
       id,
       name: data.name,
-      price: parse(NumberSchema,data.price),
+      price: parse(NumberSchema, data.price),
       availability: toBoolean(data.availability.toString()),
     });
     if (result.success) {
@@ -73,6 +73,14 @@ export async function editProduct(data: ProductData, id: Product["id"]) {
     } else {
       throw new Error("Datos no validos");
     }
+  } catch (error) {
+    console.log(error);
+  }
+}
+export async function deleteProduct(id: Product["id"]) {
+  try {
+    const url = `${import.meta.env.VITE_API_URL}/api/products/${id}`;
+    await axios.delete(url);
   } catch (error) {
     console.log(error);
   }
