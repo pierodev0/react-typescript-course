@@ -1,10 +1,15 @@
-import {  useNavigate } from "react-router";
+import { Form, redirect, useNavigate, type ActionFunctionArgs } from "react-router";
 import type { Product } from "../types";
 import { formatCurrency } from "../utils";
 
 type ProductDetailProp = {
   product: Product;
 };
+
+export async function action({ request, params }: ActionFunctionArgs) {
+  console.log("Desde action ProductDetails");
+  return redirect("/")
+}
 const ProductDetail = ({ product }: ProductDetailProp) => {
   const isAvailable = product.availability;
   const navigate = useNavigate();
@@ -25,6 +30,18 @@ const ProductDetail = ({ product }: ProductDetailProp) => {
           >
             Editar
           </button>
+          <Form
+            className="w-full"
+            method="post"
+            action={`productos/${product.id}/eliminar`}
+          >
+            <button
+              className="bg-red-600 text-white rounded-lg w-full p-2 uppercase font-bold text-xs text-center w-full"
+              type="submit"
+            >
+              Eliminar
+            </button>
+          </Form>
         </div>
       </td>
     </tr>
